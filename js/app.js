@@ -1,6 +1,6 @@
 /* Inkpane — sign PDFs in the browser. pdf.js renders, pdf-lib writes; nothing leaves the device. */
 (() => {
-  const VERSION = "1.0.0"; // keep in step with CACHE_VERSION in sw.js
+  const VERSION = "1.0.1"; // keep in step with CACHE_VERSION in sw.js
   const { t } = I18N;
   const $ = s => document.querySelector(s);
   const LS_SIG = "inkpane.signature.v1";

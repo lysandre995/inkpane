@@ -1,7 +1,7 @@
 /* Inkpane service worker: cache-first for the app shell, versioned cache.
    Bump CACHE_VERSION (and VERSION in js/app.js) on every release: the browser sees a changed sw.js,
    installs the new cache in the background and the next reload serves the new files. */
-const CACHE_VERSION = "1.0.0";
+const CACHE_VERSION = "1.0.1";
 const CACHE = "inkpane-" + CACHE_VERSION;
 
 const ASSETS = [

@@ -13,7 +13,7 @@ Sign PDFs in your browser. Nothing is uploaded.
 - Installable app (PWA): works offline, and on Windows it opens PDFs from Explorer (**Open with → Inkpane**).
 - Italian, English and German.
 
-> **Graphic signature, not a digital signature.** Inkpane stamps an image of your handwritten signature on the page, like Acrobat's *Fill & Sign*. It adds no certificate-based (PAdES) signature and gives no cryptographic proof of who signed.
+> **Graphic signature, not a digital signature.** Inkpane stamps an image of your handwritten signature on the page. It adds no certificate-based (PAdES) signature and gives no cryptographic proof of who signed.
 
 ## Privacy
 
