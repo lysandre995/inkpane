@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="112" fill="#2340a6"/>
+  <g id="mark">
+    <rect x="128" y="88" width="256" height="336" rx="22" fill="#ffffff"/>
+    <rect x="164" y="136" width="150" height="14" rx="7" fill="#c9d1ea"/>
+    <rect x="164" y="172" width="184" height="14" rx="7" fill="#c9d1ea"/>
+    <rect x="164" y="208" width="120" height="14" rx="7" fill="#c9d1ea"/>
+    <path d="M150 336 C 178 262, 206 262, 200 318 C 196 352, 214 352, 236 312 C 252 284, 262 292, 262 318 C 262 338, 276 338, 296 318 C 318 296, 338 300, 366 304"
+          fill="none" stroke="#1d3a9e" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="164" y="370" width="184" height="6" rx="3" fill="#8f9bc4"/>
+  </g>
+</svg>

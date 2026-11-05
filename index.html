@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Inkpane</title>
+<meta name="description" content="Inkpane: sign PDFs in your browser. Nothing is uploaded.">
+<meta name="theme-color" content="#2340a6">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="icon" href="icons/icon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="preload" href="vendor/fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<div class="app">
+  <header class="bar">
+    <div class="brand">
+      <img src="icons/icon.svg" alt="">
+      <div class="txt">
+        <h1>Inkpane</h1>
+        <small data-i18n="tagline"></small>
+      </div>
+    </div>
+    <span class="file" id="fileName"></span>
+    <select class="lang" id="lang" data-i18n-attr="aria-label:language">
+      <option value="it">Italiano</option>
+      <option value="en">English</option>
+      <option value="de">Deutsch</option>
+    </select>
+    <button class="btn ghost" id="installBtn" type="button" hidden data-i18n="install"></button>
+    <label class="btn" for="pdfInput" data-i18n="openPdf"></label>
+    <input type="file" id="pdfInput" accept="application/pdf,.pdf" hidden>
+    <button class="btn primary" id="saveBtn" type="button" disabled data-i18n="savePdf"></button>
+  </header>
+
+  <div class="main">
+    <aside class="side">
+      <section class="sec">
+        <h2 data-i18n="yourSignature"></h2>
+        <div class="tabs" role="tablist">
+          <button role="tab" id="tabDraw" type="button" aria-selected="true" data-i18n="tabDraw"></button>
+          <button role="tab" id="tabImg" type="button" aria-selected="false" data-i18n="tabImg"></button>
+        </div>
+
+        <div id="drawPane" class="sec">
+          <div class="padwrap"><span class="x">×</span><canvas id="pad"></canvas></div>
+          <div class="row">
+            <button class="swatch" type="button" style="background:#1d3a9e" data-color="#1d3a9e" aria-pressed="true" data-i18n-attr="aria-label:inkBlue"></button>
+            <button class="swatch" type="button" style="background:#111418" data-color="#111418" aria-pressed="false" data-i18n-attr="aria-label:inkBlack"></button>
+            <label class="inline grow"><span data-i18n="stroke"></span> <input type="range" id="penW" min="1" max="5" step="0.5" value="2.5"></label>
+            <button class="btn ghost small" id="padClear" type="button" data-i18n="clear"></button>
+          </div>
+          <button class="btn" id="padUse" type="button" disabled data-i18n="useSignature"></button>
+        </div>
+
+        <div id="imgPane" class="sec" hidden>
+          <label class="drop" for="imgInput"><span data-i18n="imgDrop"></span><br><span class="muted">PNG / JPG</span></label>
+          <input type="file" id="imgInput" accept="image/png,image/jpeg" hidden>
+          <label class="inline"><input type="checkbox" id="rmWhite" checked> <span data-i18n="rmWhite"></span></label>
+        </div>
+
+        <div class="current" id="current" hidden>
+          <div class="thumb"><img id="curImg" data-i18n-attr="alt:curSigAlt"></div>
+          <div class="info">
+            <button class="btn primary small" id="placeSig" type="button" data-i18n="placeOnPage"></button>
+            <button class="btn ghost small" id="forgetSig" type="button" data-i18n="forgetSig"></button>
+          </div>
+        </div>
+        <div class="remember">
+          <label class="inline"><input type="checkbox" id="remember" checked> <span data-i18n="remember"></span></label>
+          <p id="rememberNote"></p>
+        </div>
+      </section>
+
+      <section class="sec">
+        <h2 data-i18n="text"></h2>
+        <input class="field" id="txt" data-i18n-attr="aria-label:textAria">
+        <div class="row">
+          <label class="inline grow"><span data-i18n="size"></span>
+            <select class="field" id="txtSize" style="width:auto;padding:4px 8px">
+              <option>9</option><option>10</option><option selected>11</option><option>12</option><option>14</option><option>16</option>
+            </select> pt</label>
+          <button class="btn small" id="placeTxt" type="button" data-i18n="placeOnPage"></button>
+        </div>
+      </section>
+
+      <section class="sec">
+        <h2 data-i18n="howTo"></h2>
+        <ol class="steps">
+          <li data-i18n-html="step1"></li>
+          <li data-i18n-html="step2"></li>
+          <li data-i18n-html="step3"></li>
+          <li data-i18n-html="step4"></li>
+          <li data-i18n-html="step5"></li>
+        </ol>
+        <p class="note" data-i18n="noteGraphic"></p>
+        <p class="ver" id="ver"></p>
+      </section>
+    </aside>
+
+    <main class="viewer" id="viewer">
+      <div class="hint" id="hint" hidden></div>
+      <div class="banner" id="banner" hidden data-i18n-html="banner"></div>
+      <div class="pages" id="pages"></div>
+    </main>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+<script src="vendor/pdfjs-3.11.174/pdf.min.js"></script>
+<script src="vendor/pdf-lib-1.17.1/pdf-lib.min.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+# Test screenshots and local tooling
+.playwright-png/
+node_modules/
+test-results/
+playwright-report/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Local scratch: never commit real documents
+*.local.pdf
